@@ -2,19 +2,18 @@
 export interface PostTypeI {
     id: string;
     author: {
-        name: string;
-        id: string;
-        role: string;
+        idAuthor: string;
         avatar: string;
+        name: string;
+        role: string;
     },
-    date: string
+    date: Date
     text: string
-    // comentarios
 }
 
 //  
 export interface postContextI {
-    acquirers: PostTypeI[];
+    post: PostTypeI[];
     // lista de elementos do tipo AcquirersTypeI[]
-    setAcquirers: (value: PostTypeI[]) => void;
+    setPost: (value: PostTypeI[]) => void;
 }

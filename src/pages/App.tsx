@@ -6,19 +6,6 @@ import { Search } from '../components/search'
 import { SideBar } from '../components/sidebar'
 
 
-const posts = [
-  {
-    id: 1,
-    author: "Diego",
-    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur quibusdam nemo minus, totam consequatur temporibus esse sint voluptatem animi quasi odit aut deserunt beatae cumque voluptates deleniti sit libero dolorem.",
-  },
-  {
-    id: 2,
-    author: "Debora",
-    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur quibusdam nemo minus, totam consequatur temporibus esse sint voluptatem animi quasi odit aut deserunt beatae cumque voluptates deleniti sit libero dolorem.",
-  }
-]
-
 function App() {
   const [count, setCount] = useState(0)
   const [hei, sethei] = useState(false) // fazer um context
@@ -30,6 +17,14 @@ function App() {
   const open = () => {
     setSideBarStatus(true)
   }
+
+  const list: React.ReactNode[] = [
+    <p>bla bla bla</p>,
+    <p>sit quos cum ratione quaerat? Praesentium distinctio iste cum consectetur quos ratione voluptatum facilis aspernatur labore qui sit rerum omnis ex, laboriosam corporis minima cupiditate voluptate! Non?</p>,
+    <a href="produtos.html">produtos.html</a>,
+    <p>#tag </p>
+  ]
+
   return (
     <div className={`App w-[100vw] ${hei ? "max-h-[100vh] overflow-hidden" : "min-h-[100vh]"} flex flex-col items-center bg-neutral-800 text-neutral-0 `}>
       <Header />
@@ -38,9 +33,9 @@ function App() {
           <SideBar />
         </div>
         <main className='mx-[1vw]'>
-          <Post />
-          <Post />
-          <Post />
+          <Post nameUser='giovanna' roleUser='deelope' text={list} />
+          <Post nameUser='Diego' roleUser='deelope' text={list} />
+          <Post nameUser='Maria' roleUser='deelope' text={list} />
         </main>
         <div className='sticky top-[7rem] z-0 max-md:hidden '>
           <Search />

@@ -1,22 +1,52 @@
-import { createContext } from "react";
-import { PostTypeI } from "./types";
+import React, { createContext, useContext, useState } from "react";
+import { DefaultContextProps } from "../types";
+import { postContextI, PostTypeI } from "./types";
 
-export const AcquirersContext = createContext<PostTypeI>({
 
-} as PostTypeI);
+
+export const PostContext = createContext<postContextI>({} as postContextI);
 
 const dadosMocados = [
     {
         id: "1",
         author: {
+            idAuthor: "@fabio",
+            avatar: 'imagem',
             name: "fabio",
-            id: "@fabio",
             role: "sla",
         },
-        date: "01-01-02",
-        text: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        date: new Date('2022-05-10 20:00:00'),
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sunt neque nihil vitae praesentium tenetur dolores odio, commodi, molestiae rem inventore debitis adipisci velit itaque error, ipsam atque quo unde?"
+    },
+    {
+        id: "2",
+        author: {
+            idAuthor: "@adriano",
+            avatar: 'imagem',
+            name: "adriano",
+            role: "profissão",
+        },
+        date: new Date('2022-10-08 17:45:00'),
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sunt neque nihil vitae praesentium tenetur dolores odio, commodi, molestiae rem inventore debitis adipisci velit itaque error, ipsam atque quo unde?"
     }
 ]
+
+
+export const PostProvider = ({ children }: DefaultContextProps) => {
+    const [post, setPost] = useState<PostTypeI[]>(dadosMocados as PostTypeI[]);
+    return (
+        <PostContext.Provider value={{ post, setPost }}>
+            {children}
+        </PostContext.Provider>
+    );
+};
+
+export function usePost() {
+    const context = useContext(PostContext)
+    if (!context) throw new Error("Eu fazendo merda")
+    return context
+}
+
 
 // // lembra de englobar o app com AcquirersContext la porra
 
