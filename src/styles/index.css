@@ -84,10 +84,18 @@ html::-webkit-scrollbar {
   /* A altura só é vista quando a rolagem é horizontal */
 }
 
+div::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+  /* A altura só é vista quando a rolagem é horizontal */
+}
+
 html::-webkit-scrollbar-track {
   background: rgb(41, 41, 41);
   padding: 2px;
 }
+
+
 
 html::-webkit-scrollbar-thumb {
   background-color: #a5a5a5;

@@ -9,8 +9,8 @@ const dropIn = {
         opacity: 0,
     },
     visible: {
-        y: "35vh",
-        x: "35vw",
+        y: "0vh",
+        x: "0vw",
         opacity: 1,
         transition: {
             duration: 0.1,
@@ -32,13 +32,13 @@ const Modal = ({ handleClose, text }) => {
         <Backdrop onClick={handleClose}>
             <motion.div
                 onClick={(e) => e.stopPropagation()}
-                className="flex flex-row w-[30vw] h-[30vh] bg-neutral-800 rounded-lg p-[1vw] justify-between"
+                className="flex flex-row  bg-neutral-800 rounded-lg p-[1vw] mx-[33.3vw] my-[33.3vh] justify-between"
                 variants={dropIn}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
             >
-                <form>
+                <form className="max-w-[30vw]">
                     <strong>Deixe seu comentário</strong>
                     <textarea className="text-neutral-0 bg-transparent placeholder:text-neutral-500 placeholder:text-ellipsis w-[30rem] h-[9rem] p-[0.1rem] rounded-lg resize-none my-[1rem] outline-none" placeholder="escreva seu comentário" />
                     <div className="w-full flex justify-start h-[5vh]">

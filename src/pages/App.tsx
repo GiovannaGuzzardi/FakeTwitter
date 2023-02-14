@@ -8,7 +8,7 @@ import { SideBar } from '../components/sidebar'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [hei, sethei] = useState(false) // fazer um context
+  const [hei, sethei] = useState(true) // fazer um context
   const [sideBarStatus, setSideBarStatus] = useState(true) // fazer um context
 
   const close = () => {
