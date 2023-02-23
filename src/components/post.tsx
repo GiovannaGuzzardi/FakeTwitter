@@ -1,23 +1,20 @@
 import { motion } from 'framer-motion';
 import { ChatsCircle, Heart } from 'phosphor-react';
 import React, { useState } from 'react';
+import { usePost } from '../context/Posts';
+import { PostTypeI } from '../context/Posts/types';
 import { Comment } from './comentarios';
 import Modal from './modal';
 
-interface PostI {
-    nameUser: string,
-    roleUser: string,
-    text: React.ReactNode[],
-    date?: Date
+interface bla {
+    item: PostTypeI
 }
 
-
-
-export function Post(props: PostI) {
+export function Post({ item }: bla) {
 
     const [modalOpen, setModalOpen] = useState(false);
     const [comentOpen, setComentOpen] = useState(false)
-
+    const { post } = usePost()
 
     const openComent = () => {
         setComentOpen(true)
@@ -33,6 +30,7 @@ export function Post(props: PostI) {
         setModalOpen(true)
     }
 
+
     return (
         <article
             className='md: max-md:border-b max-md:border-neutral-300 md:hover:bg-neutral-700 md:rounded-lg overflow-hidden max-md:p-[1rem] md:p-[2.5rem] mb:mb-[1.5rem] md:hover:border md:hover:border-neutral-700 '
@@ -42,27 +40,20 @@ export function Post(props: PostI) {
             >
                 <header className='flex  h-[4rem] items-center self-center'>
                     <img
-                        src="/img/pessoa.jpg" className=' w-[3rem] h-[3rem] rounded-full self-center outline-double'
+                        src={item.author.avatar} className=' w-[3rem] h-[3rem] rounded-full self-center outline-double'
                     />
                     <div className='flex flex-col items-start pl-[1rem] self-center'>
-                        <strong>{props.nameUser}</strong>
-                        <span className='text-neutral-400'>{props.roleUser}</span>
+                        <strong>{item.author.name}</strong>
+                        <span className='text-neutral-400'>{item.author.role}</span>
                     </div>
                 </header>
                 <div className='py-[1rem] flex max-w-[60rem] max-md:flex-col-reverse overflow-hidden'>
-                    <img
-                        src="/img/pessoa.jpg" className='max-w-[18rem] max-h-[18rem] rounded-lg max-md:self-center'
-                    />
-                    <div className='pl-[1rem] max-md:mb-[1rem]'>
-                        {props.text.map((item) => {
-                            return item
-                        })}
-                    </div>
+                    {item.text}
                 </div>
             </div>
 
             <div className='flex w-full justify-between'>
-                <time className='text-neutral-400 '>{`${props.date ?? "Anonimo"}`}</time>
+                <time className='text-neutral-400 '>{`${item.date ?? "Anonimo"}`}</time>
                 <div className='flex'>
                     <div className='flex items-center w-[5rem]'>
                         <h3>2</h3>
@@ -84,8 +75,15 @@ export function Post(props: PostI) {
                     </div>
                 </div>
             </div>
-            {comentOpen && <Comment />}
+            {item?.coments?.map((item) => {
+                return (comentOpen && <Comment coments={item} />)
+            })}
             {modalOpen && <Modal text={""} handleClose={close} />}
         </article>
+
     )
+
+
 }
+
+

@@ -8,26 +8,68 @@ export const PostContext = createContext<postContextI>({} as postContextI);
 
 const dadosMocados = [
     {
-        id: "1",
+        id: "2",
         author: {
-            idAuthor: "@fabio",
-            avatar: 'imagem',
-            name: "fabio",
-            role: "sla",
+            idAuthor: "@adriano",
+            avatar: '/img/pessoa.jpg',
+            name: "adriano",
+            role: "profissão",
         },
-        date: new Date('2022-05-10 20:00:00'),
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sunt neque nihil vitae praesentium tenetur dolores odio, commodi, molestiae rem inventore debitis adipisci velit itaque error, ipsam atque quo unde?"
+        date: new Date('2022-10-08 17:45:00'),
+        text: [
+            <img
+                src="/img/pessoa.jpg" className='max-w-[18rem] max-h-[18rem] rounded-lg max-md:self-center'
+            />,
+            <div className="max-md:mb-[1rem] px-[1rem]">
+                <p>bla bla bla</p>
+                <p>sit quos cum ratione quaerat? Praesentium distinctio iste cum consectetur quos ratione voluptatum facilis aspernatur labore qui sit rerum omnis ex, laboriosam corporis minima cupiditate voluptate! Non?</p>,
+                <a href="produtos.html">produtos.html</a>,
+                <p>#tag </p>
+            </div>
+        ],
+        coments: [
+            {
+                imgComent: "/img/pessoa.jpg",
+                howComent: "augusto",
+                roleComente: "designer",
+                coment: [
+                    <p>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</p>,
+                ],
+                timecoment: new Date('2022-05-01 00:10:00'),
+            }
+        ]
     },
     {
         id: "2",
         author: {
             idAuthor: "@adriano",
-            avatar: 'imagem',
+            avatar: '/img/pessoa.jpg',
             name: "adriano",
             role: "profissão",
         },
         date: new Date('2022-10-08 17:45:00'),
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sunt neque nihil vitae praesentium tenetur dolores odio, commodi, molestiae rem inventore debitis adipisci velit itaque error, ipsam atque quo unde?"
+        text: [
+            <img
+                src="/img/pessoa.jpg" className='max-w-[18rem] max-h-[18rem] rounded-lg max-md:self-center'
+            />,
+            <div className="max-md:mb-[1rem] px-[1rem]">
+                <p>bla bla bla</p>
+                <p>sit quos cum ratione quaerat? Praesentium distinctio iste cum consectetur quos ratione voluptatum facilis aspernatur labore qui sit rerum omnis ex, laboriosam corporis minima cupiditate voluptate! Non?</p>,
+                <a href="produtos.html">produtos.html</a>,
+                <p>#tag </p>
+            </div>
+        ],
+        coments: [
+            {
+                imgComent: "/img/pessoa.jpg",
+                howComent: "augusto",
+                roleComente: "designer",
+                coment: [
+                    <p>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</p>,
+                ],
+                timecoment: new Date('2022-05-01 00:10:00'),
+            }
+        ]
     }
 ]
 
@@ -46,6 +88,21 @@ export function usePost() {
     if (!context) throw new Error("Eu fazendo merda")
     return context
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // // lembra de englobar o app com AcquirersContext la porra

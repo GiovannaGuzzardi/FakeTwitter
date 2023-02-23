@@ -1,3 +1,11 @@
+export interface ComentTypeI {
+    imgComent: string
+    howComent: string
+    roleComente: string
+    coment: React.ReactNode[],
+    timecoment: Date
+}
+
 
 export interface PostTypeI {
     id: string;
@@ -8,7 +16,8 @@ export interface PostTypeI {
         role: string;
     },
     date: Date
-    text: string
+    text: React.ReactNode[],
+    coments?: ComentTypeI[]
 }
 
 //  

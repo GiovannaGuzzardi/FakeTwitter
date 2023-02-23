@@ -1,6 +1,20 @@
 import React from 'react'
 
-export function Comment() {
+
+
+interface bla {
+    coments:
+    {
+        howComent: string
+        roleComente: string
+        coment: React.ReactNode[],
+        timecoment: Date
+        imgComent: string
+
+    } | undefined
+}
+
+export function Comment({ coments }: bla) {
     console.log("a")
     return (
         <div className=" mt-[2rem]" >
@@ -8,28 +22,15 @@ export function Comment() {
             <div className="">
                 <div className='flex  h-[4rem] items-center self-center'>
                     <img
-                        src="/img/pessoa.jpg" className=' w-[3rem] h-[3rem] rounded-full self-center outline-double'
+                        src={coments?.imgComent} className=' w-[3rem] h-[3rem] rounded-full self-center outline-double'
                     />
                     <div className='flex flex-col items-start pl-[1rem] self-center'>
-                        <strong>Giovanna Guzzardi</strong>
-                        <span className='text-neutral-400'>Web Developer</span>
+                        <strong>{coments?.howComent}</strong>
+                        <span className='text-neutral-400'>{coments?.roleComente}</span>
                     </div>
                 </div>
-                <p className='w-full break-words'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam necessitatibus molestias voluptates fugiat dolores? Ullam dolore dicta excepturi. Ad facilis et necessitatibus architecto itaque esse molestias ipsam perferendis, earum inventore!</p>
-                <div className='py-[1rem] text-neutral-400'>há dois minutos</div>
-            </div>
-            <div className="">
-                <div className='flex  h-[4rem] items-center self-center'>
-                    <img
-                        src="/img/pessoa.jpg" className=' w-[3rem] h-[3rem] rounded-full self-center outline-double'
-                    />
-                    <div className='flex flex-col items-start pl-[1rem] self-center'>
-                        <strong>Giovanna Guzzardi</strong>
-                        <span className='text-neutral-400'>Web Developer</span>
-                    </div>
-                </div>
-                <p className='w-full break-words'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam necessitatibus molestias voluptates fugiat dolores? Ullam dolore dicta excepturi. Ad facilis et necessitatibus architecto itaque esse molestias ipsam perferendis, earum inventore!</p>
-                <div className='py-[1rem] text-neutral-400'>há dois minutos</div>
+                <p className='w-full break-words'>{coments?.coment}</p>
+                <div className='py-[1rem] text-neutral-400'>{`${coments?.timecoment}`}</div>
             </div>
         </div>
     )
