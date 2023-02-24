@@ -4,6 +4,7 @@ import { Now } from '../components/now'
 import { Post } from '../components/post'
 import { Search } from '../components/search'
 import { SideBar } from '../components/sidebar'
+import { userAuth } from '../context/auth'
 import { usePost } from '../context/Posts'
 
 
@@ -12,6 +13,7 @@ function FirstPage() {
     const [hei, sethei] = useState(false) // fazer um context
     const [sideBarStatus, setSideBarStatus] = useState(true) // fazer um context
     const { post } = usePost()
+    const { user } = userAuth()
 
     const close = () => {
         setSideBarStatus(false)

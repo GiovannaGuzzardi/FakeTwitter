@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { FacebookAuthProvider, getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 // chaves unicas de cada projeto
@@ -18,10 +18,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // serviço de autentificação do firebase
-export const auth = getAuth(app)
+export const authConfig = getAuth(app)
 
 // serviço de autentificação de login com o google
 export const googleProvider = new GoogleAuthProvider
+
+export const facebookProvider = new FacebookAuthProvider
 
 // futuramente configurar o facebook
 
