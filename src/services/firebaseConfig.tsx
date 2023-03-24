@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { FacebookAuthProvider, getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { collection, getFirestore } from 'firebase/firestore';
+import { getStorage } from "firebase/storage";
 
 // chaves unicas de cada projeto
 // aponta erro mas funciona??????
@@ -23,10 +24,12 @@ export const authConfig = getAuth(app)
 // serviço de autentificação de login com o google
 export const googleProvider = new GoogleAuthProvider
 
+// servição de autenficação com o facebook
 export const facebookProvider = new FacebookAuthProvider
 
-// futuramente configurar o facebook
-
+export const storage = getStorage()
 
 // database do firebase (ainda não integrado)
 export const db = getFirestore(app)
+
+export const usersCollection = collection(db, "users")

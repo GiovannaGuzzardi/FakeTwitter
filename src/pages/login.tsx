@@ -61,7 +61,7 @@ function Login() {
         <div className='w-[100vw] h-[100vh] bg-gradient-to-t from-neutral-900 to-red-500 flex flex-auto items-center justify-between px-[6rem]'>
             <div className='md:flex  md:items-center self-center'>
                 <img src='/img/logo.png' className='h-[20rem]' />
-                <h1 className='text-[5rem] max-md:hidden text-center text-neutral-0 pl-[2rem] font-bold'>Harley Dev</h1>
+                <h1 className='text-[5rem] max-md:hidden text-start text-neutral-0 pl-[2rem] font-bold'>Harley<br />Developer</h1>
             </div>
             <div className=' flex flex-col items-center bg-neutral-0 shadow-lg rounded-lg my-[1rem] justify-center p-[3rem]'>
 
@@ -121,7 +121,7 @@ function Login() {
                     Não tem uma conta?
                     <Link
                         className=' font-bold text-red-500 hover:text-red-700'
-                        to="/signIn"
+                        to="/signUp"
                     >
                         Crie aqui
                     </Link>

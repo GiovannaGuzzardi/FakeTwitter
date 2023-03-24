@@ -15,7 +15,7 @@ function App() {
     // agora o app funciona de forma a configurar as rotas do app
     <Routes>
       <Route path="/" element={<Login />} />
-      <Route path="/signIn" element={<SignUp />} />
+      <Route path="/signUp" element={<SignUp />} />
       <Route path="/notAuthorized" element={<NotAuthorized />} />
       <Route path="/firstPage" element={
         <RoutePrivate>
