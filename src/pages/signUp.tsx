@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { userAuth } from '../context/auth';
 
 export function SignUp() {
+    // comparação das senhas
     const [passwordtwo, setPasswordtwo] = useState("")
     const [password, setPassword] = useState("")
     const [more, setMore] = useState(false)
