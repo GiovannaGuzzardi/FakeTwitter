@@ -1,4 +1,4 @@
-Aplicação em react typescript (para inicializar use yarn rum)
+Aplicação em react typescript (para inicializar use yarn dev)
 
 A ideia é a elaboração de um sistema web correspondente a uma rede social para isso foi seguido o seguinte passo a passo: 
 
