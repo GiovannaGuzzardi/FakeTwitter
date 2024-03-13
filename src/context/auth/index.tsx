@@ -26,7 +26,7 @@ export const AuthProvider: React.FC<IProps> = ({ children }) => {
                 return databaseUsers(userId);
             })
             .catch((error) => {
-                // Ocorreu um erro na criação do usuário
+                // Ocorreu um erro na criação do usuári
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.error(`Erro na criação do usuário: ${errorCode} - ${errorMessage}`);
